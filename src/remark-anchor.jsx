@@ -51,7 +51,11 @@ export default function createRemarkAnchor(OrigA) {
       return () => clearTimeout(timer);
     });
 
-    if (isAutoLinkEnabled && label === href && image) {
+    if (
+      ((typeof label === "string" && label === "card") ||
+        (isAutoLinkEnabled && label === href)) &&
+      image
+    ) {
       return (
         <a href={href}>
           <div className="link-card">
