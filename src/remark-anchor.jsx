@@ -53,11 +53,9 @@ export default function createRemarkAnchor(OrigA) {
 
     if (
       ((typeof label === "string" && label === "card") ||
-        (isAutoLinkEnabled && label === href)) &&
-      image
-    ) {
+        (isAutoLinkEnabled && label === href)) && image) {
       return (
-        <a href={href}>
+        <a href={href} className="link-card-anchor">
           <div className="link-card">
             <img src={image} className="link-card-image" />
             <div className="link-card-text">
