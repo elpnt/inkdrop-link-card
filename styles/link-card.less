@@ -1,18 +1,38 @@
 .link-card {
-  border: 0.5px solid white;
-  border-radius: 5px;
+  border: 1px solid rgba(120, 120, 120, 0.6);
+  border-radius: 10px;
+  box-sizing: border-box;
   display: flex;
-  flex: 1 0 auto;
+  overflow: hidden;
+  align-items: center;
+}
+
+.link-card:hover {
+  background-color: rgba(120, 120, 120, 0.2);
 }
 
 .link-card-image {
-  flex: 1;
   width: 6em;
   height: 6em;
-  border-radius: 5px 0 0 5px;
+  border-radius: 0px 0 0 0px;
   object-fit: cover;
 }
 
+.link-card-text {
+  display: flex;
+  flex-direction: column;
+  padding: 0px var(--12px);
+}
+
 .link-card-title {
-  flex: 3;
+  display: inline-block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: var(--text-color);
+}
+
+.link-card-description {
+  color: var(--light-text-color);
+  font-size: var(--12px);
 }

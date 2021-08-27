@@ -16,7 +16,7 @@
     "fix:prettier": "prettier --write --ignore-path .gitignore '**/*.{less,yml,json}'"
   },
   "engines": {
-    "inkdrop": "^4.x"
+    "inkdrop": "^5.x"
   },
   "dependencies": {},
   "devDependencies": {
