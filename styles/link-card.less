@@ -5,11 +5,10 @@
 .link-card {
   border: 1px solid rgba(120, 120, 120, 0.6);
   border-radius: 10px;
-  box-sizing: border-box;
   display: flex;
   overflow: hidden;
   align-items: center;
-  height: 8em;
+  height: 6em;
 }
 
 .link-card:hover {
@@ -17,7 +16,10 @@
 }
 
 .link-card-image {
-  width: 8em;
+  width: 6em;
+  height: 6em;
+  min-width: 6em;
+  min-height: 6em;
   object-fit: cover;
 }
 
@@ -34,14 +36,18 @@
   overflow: hidden;
   text-overflow: ellipsis;
   color: var(--text-color);
+  font-size: var(--14px);
+  line-height: var(--16px);
+  margin-bottom: 2px;
 }
 
 .link-card-description {
   display: -webkit-box;
-  -webkit-line-clamp: 3;
+  -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
   overflow: hidden;
   text-overflow: ellipsis;
   color: var(--light-text-color);
   font-size: var(--12px);
+  line-height: var(--15px);
 }
