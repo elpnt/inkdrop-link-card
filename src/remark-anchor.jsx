@@ -20,7 +20,8 @@ export default function createRemarkAnchor(OrigA) {
 
             // Extract title
             // If title doesn't exit, use URL instead
-            const headTitle = dom.head.getElementsByTagName("title")[0].text;
+            let headTitle = dom.head.querySelector("title");
+            headTitle = headTitle ? headTitle.text : null;
             let ogTitle = dom.head.querySelector("meta[property='og:title']");
             ogTitle = ogTitle ? ogTitle.getAttribute("content") : headTitle;
             setTitle(ogTitle || href);
@@ -53,7 +54,9 @@ export default function createRemarkAnchor(OrigA) {
 
     if (
       ((typeof label === "string" && label === "card") ||
-        (isAutoLinkEnabled && label === href)) && image) {
+        (isAutoLinkEnabled && label === href)) &&
+      image
+    ) {
       return (
         <a href={href} className="link-card-anchor">
           <div className="link-card">
