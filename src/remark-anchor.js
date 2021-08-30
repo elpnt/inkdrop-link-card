@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { getImage, getTitle, getDescription } from "./get-data";
 
 export default function createRemarkAnchor(OrigA) {
   return function RemarkAnchor(props) {
@@ -14,38 +15,16 @@ export default function createRemarkAnchor(OrigA) {
       // To avoid too many requests while editing, sleep 1 second for each request
       const timer = setTimeout(() => {
         fetch(href)
-          .then((res) => res.text())
+          .then((response) => response.text())
           .then((text) => {
             const dom = new DOMParser().parseFromString(text, "text/html");
 
-            // Extract title
-            // If title doesn't exit, use URL instead
-            let headTitle = dom.head.querySelector("title");
-            headTitle = headTitle ? headTitle.text : null;
-            let ogTitle = dom.head.querySelector("meta[property='og:title']");
-            ogTitle = ogTitle ? ogTitle.getAttribute("content") : headTitle;
-            setTitle(ogTitle || href);
-
-            // Extract description
-            let ogDescription = dom.head.querySelector(
-              "meta[property='og:description']"
-            );
-            ogDescription = ogDescription
-              ? ogDescription.getAttribute("content")
-              : null;
-            setDescription(ogDescription);
-
-            // Extract image
-            const ogImage = dom.head.querySelector("meta[property='og:image']");
-            image = ogImage
-              ? ogImage.getAttribute("content").split("?")[0]
-              : null;
-            // If og:image is relative path, convert it to absolute one
-            if (image && !isAbsoluteUrl(image)) {
-              const origin = new URL(href).origin;
-              image = origin + "/" + image;
-            }
+            const image = getImage(href, dom);
+            const title = getTitle(dom);
+            const description = getDescription(dom);
             setImage(image);
+            setTitle(title);
+            setDescription(description);
           });
       }, 1000);
 
