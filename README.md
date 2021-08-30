@@ -21,8 +21,6 @@ Or just write a URL
 https://github.com/elpnt/inkdrop-link-card
 ```
 
-Links without an HTML meta tag having `og:image` property are not converted to cards.
-
 ## Settings
 
-- **autolinks**: Creates link cards from standard URLs (default: **true**)
+- **autolinks**: Create link cards from standard URLs (default: **true**)

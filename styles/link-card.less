@@ -16,11 +16,31 @@
 }
 
 .link-card-image {
+  display: flex;
   width: 6em;
   height: 6em;
   min-width: 6em;
   min-height: 6em;
+}
+
+.link-card-image > img {
+  width: 6em;
+  height: 6em;
   object-fit: cover;
+}
+
+.link-card-image > span {
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+}
+
+.link-card-image > span::before {
+  font-family: "FontAwesome";
+  content: "\f15c";
+  color: var(--text-color);
+  font-size: 2em;
+  vertical-align: middle;
 }
 
 .link-card-text {
