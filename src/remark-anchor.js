@@ -5,7 +5,9 @@ export default function createRemarkAnchor(OrigA) {
   return function RemarkAnchor(props) {
     const { href, children } = props;
     const [label] = children instanceof Array ? children : [];
+
     const isAutoLinkEnabled = inkdrop.config.get("link-card.autolinks");
+    const imageShape = inkdrop.config.get("link-card.imageShape");
 
     let [title, setTitle] = useState(null);
     let [image, setImage] = useState(null);
@@ -18,9 +20,10 @@ export default function createRemarkAnchor(OrigA) {
           .then((response) => response.text())
           .then((text) => {
             const dom = new DOMParser().parseFromString(text, "text/html");
+            console.log(dom);
 
             const image = getImage(href, dom);
-            const title = getTitle(dom);
+            const title = getTitle(dom) || href;
             const description = getDescription(dom);
             setImage(image);
             setTitle(title);
@@ -38,7 +41,7 @@ export default function createRemarkAnchor(OrigA) {
       return (
         <a href={href} className="link-card-anchor">
           <div className="link-card">
-            <div className="link-card-image">
+            <div className={`link-card-image ${imageShape}`}>
               {image ? <img src={image} /> : <span />}
             </div>
             <div className="link-card-text">
