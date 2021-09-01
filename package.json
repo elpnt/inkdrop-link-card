@@ -1,7 +1,7 @@
 {
   "name": "link-card",
   "main": "./lib/index",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "Create link cards from URLs",
   "repository": "https://github.com/elpnt/inkdrop-link-card",
   "license": "MIT",
