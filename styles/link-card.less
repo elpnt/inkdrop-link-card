@@ -1,3 +1,7 @@
+/* Variables */
+@height: 6em;
+@wide-width: 8em;
+
 .link-card-anchor:hover {
   text-decoration: none !important;
 }
@@ -8,24 +12,38 @@
   display: flex;
   overflow: hidden;
   align-items: center;
-  height: 6em;
+  height: @height;
 }
 
 .link-card:hover {
-  background-color: rgba(120, 120, 120, 0.15);
+  background-color: rgba(120, 120, 120, 0.1);
 }
 
 .link-card-image {
   display: flex;
-  width: 6em;
-  height: 6em;
-  min-width: 6em;
-  min-height: 6em;
+  height: @height;
+  min-height: @height;
 }
 
-.link-card-image > img {
-  width: 6em;
-  height: 6em;
+.link-card-image.square {
+  width: @height;
+  min-width: @height;
+}
+
+.link-card-image.square> img {
+  width: @height;
+  height: @height;
+  object-fit: cover;
+}
+
+.link-card-image.wide {
+  width: @wide-width;
+  min-width: @wide-width;
+}
+
+.link-card-image.wide > img {
+  width: @wide-width;
+  height: @height;
   object-fit: cover;
 }
 
@@ -38,17 +56,17 @@
 .link-card-image > span::before {
   font-family: "FontAwesome";
   content: "\f15c";
-  color: var(--text-color);
   font-size: 2em;
+  color: rgba(120, 120, 120, 0.8);
   vertical-align: middle;
 }
 
 .link-card-text {
   display: flex;
   flex-direction: column;
-  height: 6em;
+  height: @height;
   justify-content: center;
-  padding: 0 var(--12px);
+  padding: 0 0.8em;
   border-left: 1px solid rgba(120, 120, 120, 0.6);
 }
 
@@ -59,9 +77,9 @@
   overflow: hidden;
   text-overflow: ellipsis;
   color: var(--text-color);
-  font-size: var(--14px);
-  line-height: var(--16px);
-  margin-bottom: 5px;
+  font-size: 0.9em;
+  line-height: 1.3em;
+  margin-bottom: 3px;
 }
 
 .link-card-description {
@@ -71,6 +89,6 @@
   overflow: hidden;
   text-overflow: ellipsis;
   color: var(--light-text-color);
-  font-size: var(--12px);
-  line-height: var(--15px);
+  font-size: 0.75em;
+  line-height: 1.2em;
 }
