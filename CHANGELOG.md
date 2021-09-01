@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.3.0 - 2021-09-01
+
+- Add a cover image option (square/wide)
+- Fetch twitter meta tags
+
 ## 0.2.0 - 2021-08-30
 
 - Show alternative icon when `og:image` is not set
