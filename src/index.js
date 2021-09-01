@@ -10,6 +10,12 @@ module.exports = {
       type: "boolean",
       default: true,
     },
+    imageShape: {
+      title: "Cover image shape",
+      type: "string",
+      default: "square",
+      enum: ["square", "wide"]
+    }
   },
 
   activate() {
