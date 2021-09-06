@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.3.1 - 2021-09-06
+
+- Sleep 1 sec only when links have the same origin while editing
+- Make description fonts bigger in cards
+
 ## 0.3.0 - 2021-09-01
 
 - Add a cover image option (square/wide)
