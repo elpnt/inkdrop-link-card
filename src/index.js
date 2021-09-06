@@ -14,8 +14,8 @@ module.exports = {
       title: "Cover image shape",
       type: "string",
       default: "square",
-      enum: ["square", "wide"]
-    }
+      enum: ["square", "wide"],
+    },
   },
 
   activate() {
