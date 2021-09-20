@@ -1,5 +1,5 @@
 import React from "react";
-import useFetchData from "./useFetchData";
+import { useFetchData } from "./useFetchData";
 
 export default function createRemarkAnchor(OrigA) {
   return function RemarkAnchor(props) {

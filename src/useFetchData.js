@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 
 function fetchImage(url, dom) {
   let image = "";
@@ -45,18 +45,12 @@ function fetchDescription(dom) {
   return description;
 }
 
-function useFetchData(href) {
+export function useFetchData(href) {
   const [image, setImage] = useState("");
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
 
-  // To avoid too many requests to a same origin, sleep 1 second after editing
-  const prevHref = usePrev(href);
-  let delay = 0;
-  if (prevHref && prevHref !== href && origin(href) === origin(prevHref)) {
-    delay = 1000;
-  }
-
+  // To avoid too many requests, sleep 1 second after editing
   useEffect(() => {
     const timer = setTimeout(() => {
       fetch(href)
@@ -67,7 +61,7 @@ function useFetchData(href) {
           setTitle(fetchTitle(dom) || href);
           setDescription(fetchDescription(dom));
         });
-    }, delay);
+    }, 1000);
 
     return () => clearTimeout(timer);
   }, [href]);
@@ -78,17 +72,3 @@ function useFetchData(href) {
     description,
   };
 }
-
-function usePrev(value) {
-  const ref = useRef();
-  useEffect(() => {
-    ref.current = value;
-  });
-  return ref.current;
-}
-
-function origin(href) {
-  return new URL(href).origin;
-}
-
-export default useFetchData;
