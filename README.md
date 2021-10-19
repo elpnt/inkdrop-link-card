@@ -24,4 +24,14 @@ https://github.com/elpnt/inkdrop-link-card
 ## Settings
 
 - **autolinks**: Create link cards from standard URLs (default: **true**)
-- **Cover image shape**: square or wide (default: **square**)
+- **Cover image shape**: square or wide (default: **wide**)
+
+### Cover image sample
+
+#### Wide
+
+![wide](img/wide.png)
+
+#### Square
+
+![square](img/square.png)
