@@ -13,7 +13,7 @@ module.exports = {
     imageShape: {
       title: "Cover image shape",
       type: "string",
-      default: "square",
+      default: "wide",
       enum: ["square", "wide"],
     },
   },
