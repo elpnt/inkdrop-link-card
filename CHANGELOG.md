@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.4.0 - 2021-10-19
+
+- Sleep 1 sec for each fetching data
+- Make wide cover images wider
+- Use wide cover images as default
+
 ## 0.3.1 - 2021-09-06
 
 - Sleep 1 sec only when links have the same origin while editing
