@@ -5,8 +5,9 @@ function fetchImage(url, dom) {
   const ogImage = dom.querySelector("meta[property='og:image']");
   if (ogImage) image = ogImage.getAttribute("content").split("?")[0];
   const twitterImage = dom.querySelector("meta[name='twitter:image']");
-  if (!image && twitterImage)
+  if (!image && twitterImage) {
     image = twitterImage.getAttribute("content").split("?")[0];
+  }
 
   // If the image path is relative, convert it to absolute one
   const isAbsoluteUrl = (url) =>
@@ -58,8 +59,8 @@ export function useFetchData(href) {
         .then((text) => {
           const dom = new DOMParser().parseFromString(text, "text/html");
           setImage(fetchImage(href, dom));
-          setTitle(fetchTitle(dom) || href);
-          setDescription(fetchDescription(dom));
+          setTitle(fetchTitle(dom));
+          setDescription(fetchDescription(dom) || href);
         });
     }, 1000);
 
