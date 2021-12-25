@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.4.3 - 2021-12-25
+
+- Bug fix: Cover images are broken when og:image/twitter:image URLs are 404
+
 ## 0.4.0 - 2021-10-19
 
 - Sleep 1 sec for each fetching data
