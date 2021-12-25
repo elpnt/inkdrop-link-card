@@ -1,8 +1,8 @@
 {
   "jsc": {
     "parser": {
-      "syntax": "typescript",
-      "tsx": true
+      "syntax": "ecmascript",
+      "jsx": true
     },
     "target": "es2020"
   },
@@ -12,7 +12,7 @@
   },
   "env": {
     "targets": {
-      "electron": 13
+      "electron": "16"
     }
   }
 }
