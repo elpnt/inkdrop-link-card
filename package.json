@@ -5,6 +5,7 @@
   "description": "Expand links as cards",
   "repository": "https://github.com/elpnt/inkdrop-link-card",
   "license": "MIT",
+  "type": "module",
   "scripts": {
     "build": "swc src/ -d lib/",
     "watch": "swc -w src/ -d lib/",
@@ -18,13 +19,11 @@
   "engines": {
     "inkdrop": "^5.x"
   },
-  "dependencies": {},
   "devDependencies": {
     "@swc/cli": "^0.1.51",
     "@swc/core": "^1.2.108",
     "@types/node": "^14.0.13",
     "@types/react": "^16.9.36",
-    "babel-eslint": "^10.1.0",
     "chokidar": "^3.5.2",
     "eslint": "^7.2.0",
     "eslint-config-prettier": "^6.11.0",
@@ -32,5 +31,8 @@
     "eslint-plugin-react": "^7.20.0",
     "eslint-plugin-react-hooks": "^4.1.0",
     "prettier": "^2.0.5"
+  },
+  "dependencies": {
+    "open-graph-scraper": "^4.11.0"
   }
 }
