@@ -5,7 +5,6 @@ module.exports = {
     "prettier/react",
   ],
   plugins: ["prettier", "react", "react-hooks"],
-  parser: "babel-eslint",
   parserOptions: {
     sourceType: "module",
   },
