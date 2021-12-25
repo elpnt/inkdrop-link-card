@@ -5,16 +5,15 @@
   "description": "Expand links as cards",
   "repository": "https://github.com/elpnt/inkdrop-link-card",
   "license": "MIT",
-  "type": "module",
   "scripts": {
     "build": "swc src/ -d lib/",
     "watch": "swc -w src/ -d lib/",
-    "lint": "yarn lint:eslint && yarn lint:prettier",
-    "lint:eslint": "eslint --format codeframe 'src/**'",
-    "lint:prettier": "prettier --check --ignore-path .gitignore '**/*.{less,yml,json}'",
+    "lint": "yarn eslint && yarn prettier",
+    "eslint": "eslint src",
+    "prettier": "prettier --check src",
     "fix": "yarn fix:eslint && yarn fix:prettier",
-    "fix:eslint": "yarn lint:eslint --fix",
-    "fix:prettier": "prettier --write --ignore-path .gitignore '**/*.{less,yml,json}'"
+    "fix:eslint": "eslint --fix",
+    "fix:prettier": "prettier --write src"
   },
   "engines": {
     "inkdrop": "^5.x"

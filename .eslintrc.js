@@ -4,11 +4,13 @@ module.exports = {
     "plugin:prettier/recommended",
     "prettier/react",
   ],
-  plugins: ["prettier", "react", "react-hooks"],
+  plugins: ["react", "react-hooks", "prettier"],
   parserOptions: {
     sourceType: "module",
+    ecmaVersion: "2020"
   },
   rules: {
     "react-hooks/rules-of-hooks": "error",
+    "react/prop-types": "off"
   },
 };
