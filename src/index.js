@@ -1,5 +1,5 @@
 import { markdownRenderer } from "inkdrop";
-import createRemarkAnchor from "./remark-anchor";
+import { createRemarkAnchor } from "./remark-anchor";
 
 module.exports = {
   origAComponent: null,

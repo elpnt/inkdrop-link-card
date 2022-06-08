@@ -1,6 +1,6 @@
 /* Variables */
 @height: 7em;
-@wide-width: @height * 1.9;
+@wideWidth: @height * 1.9;
 
 .link-card-anchor:hover {
   text-decoration: none !important;
@@ -30,30 +30,26 @@
   min-width: @height;
 }
 
-.link-card-image.square > img {
-  width: @height;
-  height: @height;
+.link-card-image.square>img {
   object-fit: cover;
 }
 
 .link-card-image.wide {
-  width: @wide-width;
-  min-width: @wide-width;
+  width: @wideWidth;
+  min-width: @wideWidth;
 }
 
-.link-card-image.wide > img {
-  width: @wide-width;
-  height: @height;
-  object-fit: cover;
+.link-card-image.wide>img {
+  object-fit: fill;
 }
 
-.link-card-image > span {
+.link-card-image>span {
   justify-content: center;
   align-items: center;
   margin: auto;
 }
 
-.link-card-image > span::before {
+.link-card-image>span::before {
   font-family: "FontAwesome";
   content: "\f15c";
   font-size: 2em;

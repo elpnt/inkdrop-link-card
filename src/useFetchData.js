@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
 import ogs from "open-graph-scraper";
 
-const SLEEP_AFTER_FETCH = 1000;
+const parser = new DOMParser();
+const FETCH_DELAY = 500;
 
 export function useFetchData(href) {
   const [image, setImage] = useState("");
@@ -9,34 +10,31 @@ export function useFetchData(href) {
   const [description, setDescription] = useState("");
 
   useEffect(() => {
-    const timer = setTimeout(() => {
-      fetch(href)
-        .then((response) => response.text())
-        .then((html) => ogs({ html }))
-        .then(({ result }) => {
-          const {
-            ogImage,
-            ogTitle,
-            ogDescription,
-            twitterImage,
-            twitterTitle,
-            twitterDescription,
-          } = result;
+    // Prevent too many requests while editing a URL
+    const timer = setTimeout(async () => {
+      const response = await fetch(href);
+      const html = await response.text();
 
-          setTitle(ogTitle || twitterTitle);
-          setDescription(ogDescription || twitterDescription);
-          return ogImage?.url || twitterImage?.url;
-        })
-        .then((rawImageUrl) => {
-          const imageUrl = new URL(rawImageUrl, href).href; // Absorb the difference between absolute and relative URLs
-          return fetch(imageUrl);
-        })
-        .then(({ ok, url }) => {
-          if (ok) {
-            setImage(url);
-          }
-        });
-    }, SLEEP_AFTER_FETCH);
+      const { result } = await ogs({ html });
+      const {
+        ogImage,
+        ogTitle,
+        ogDescription,
+        twitterImage,
+        twitterTitle,
+        twitterDescription,
+      } = result;
+
+      const document = parser.parseFromString(html, "text/html");
+      setTitle(document.title || ogTitle || twitterTitle || href);
+      setDescription(ogDescription || twitterDescription || "");
+
+      const imageRawUrl = ogImage?.url || twitterImage?.url;
+      if (imageRawUrl === undefined) return;
+      const imageAbsoluteUrl = new URL(imageRawUrl, href).href;
+      const { ok, url } = await fetch(imageAbsoluteUrl);
+      if (ok) setImage(url);
+    }, FETCH_DELAY);
 
     return () => clearTimeout(timer);
   }, [href]);

@@ -1,7 +1,7 @@
 import React from "react";
 import { useFetchData } from "./useFetchData";
 
-export default function createRemarkAnchor(OrigA) {
+export function createRemarkAnchor(OrigA) {
   return function RemarkAnchor(props) {
     const { href, children } = props;
     const [label] = children instanceof Array ? children : [];
@@ -18,9 +18,14 @@ export default function createRemarkAnchor(OrigA) {
       return (
         <a href={href} className="link-card-anchor">
           <div className="link-card">
-            <div className={`link-card-image ${imageShape}`}>
-              {image ? <img src={image} /> : <span />}
-            </div>
+            <div
+              className={`link-card-image ${imageShape}`}
+              style={{
+                backgroundImage: `url(${image})`,
+                backgroundSize: "cover",
+                backgroundPosition: "center",
+              }}
+            />
             <div className="link-card-text">
               <span className="link-card-title">{title}</span>
               <span className="link-card-description">{description}</span>
