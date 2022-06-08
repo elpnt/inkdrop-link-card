@@ -1,7 +1,7 @@
 {
   "name": "link-card",
   "main": "./lib/index",
-  "version": "0.4.3",
+  "version": "0.4.4",
   "description": "Expand links as cards",
   "repository": "https://github.com/elpnt/inkdrop-link-card",
   "license": "MIT",
