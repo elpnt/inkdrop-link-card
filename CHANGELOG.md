@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.4.4 - 2022-06-08
+
+- Bug fix: Cover images aren't displayed properly
+
 ## 0.4.3 - 2021-12-25
 
 - Bug fix: Cover images are broken when og:image/twitter:image URLs are 404
