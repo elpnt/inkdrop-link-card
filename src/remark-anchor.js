@@ -3,8 +3,7 @@ import { useFetchData } from "./useFetchData";
 
 export function createRemarkAnchor(OrigA) {
   return function RemarkAnchor(props) {
-    const { href, children } = props;
-    const [label] = children instanceof Array ? children : [];
+    const { href, children: label } = props;
 
     const isAutoLinkEnabled = inkdrop.config.get("link-card.autolinks");
     const imageShape = inkdrop.config.get("link-card.imageShape");
