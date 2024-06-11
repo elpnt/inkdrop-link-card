@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.4.5 - 2024-06-11
+
+- Bug fix: Remark anchor props (thanks to @picklecillo)
+
 ## 0.4.4 - 2022-06-08
 
 - Bug fix: Cover images aren't displayed properly
